@@ -10,8 +10,8 @@ using praksa2.Data;
 namespace praksa2.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    [Migration("20220610074827_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20220610131517_MaxLengthOnNames")]
+    partial class MaxLengthOnNames
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
