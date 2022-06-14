@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace praksa2.Models
 {
-    public class Instructor
+    public class Instructor : Person
     {
         public int Id { get; set; }
 
