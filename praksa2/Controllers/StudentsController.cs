@@ -45,7 +45,7 @@ namespace praksa2.Controllers
                            select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                students = students.Where(s => s.LastName.Contains(searchString) || s.FirstMidName.Contains(searchString));
+                students = students.Where(s => s.LastName.Contains(searchString) || s.FirstName.Contains(searchString));
             }
             switch (sortOrder)
             {
@@ -151,7 +151,7 @@ namespace praksa2.Controllers
             if (await TryUpdateModelAsync<Student>(
                 studentToUpdate,
                 "",
-                s => s.FirstMidName, s => s.LastName, s => s.EnrollmentDate))
+                s => s.FirstName, s => s.LastName, s => s.EnrollmentDate))
             {
                 try
                 {

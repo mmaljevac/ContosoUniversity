@@ -16,7 +16,7 @@ namespace praksa2.Models
         [StringLength(50)]
         [Column("FirstName")]
         [Display(Name = "First Name")]
-        public string FirstMidName { get; set; }
+        public string FirstName { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Enrollment Date")]
@@ -26,7 +26,7 @@ namespace praksa2.Models
         {
             get
             {
-                return LastName + ", " + FirstMidName;
+                return LastName + ", " + FirstName;
             }
         }
 
