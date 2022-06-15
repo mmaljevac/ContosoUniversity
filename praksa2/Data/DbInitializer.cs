@@ -2,9 +2,9 @@
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using praksa2.Models;
+using ContosoUniversity.Models;
 
-namespace praksa2.Data
+namespace ContosoUniversity.Data
 {
     public static class DbInitializer
     {

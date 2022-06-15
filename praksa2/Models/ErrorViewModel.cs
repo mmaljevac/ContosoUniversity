@@ -1,6 +1,6 @@
 using System;
 
-namespace praksa2.Models
+namespace ContosoUniversity.Models
 {
     public class ErrorViewModel
     {

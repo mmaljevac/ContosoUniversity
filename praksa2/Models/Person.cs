@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace praksa2.Models
+namespace ContosoUniversity.Models
 {
     public abstract class Person
     {

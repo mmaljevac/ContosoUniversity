@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-namespace praksa2.Migrations
+namespace ContosoUniversity.Migrations
 {
     public partial class Inheritance : Migration
     {

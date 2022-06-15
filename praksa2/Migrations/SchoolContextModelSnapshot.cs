@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using praksa2.Data;
+using ContosoUniversity.Data;
 
-namespace praksa2.Migrations
+namespace ContosoUniversity.Migrations
 {
     [DbContext(typeof(SchoolContext))]
     partial class SchoolContextModelSnapshot : ModelSnapshot
@@ -19,7 +19,7 @@ namespace praksa2.Migrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("praksa2.Models.Course", b =>
+            modelBuilder.Entity("ContosoUniversity.Models.Course", b =>
                 {
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
@@ -41,7 +41,7 @@ namespace praksa2.Migrations
                     b.ToTable("Course");
                 });
 
-            modelBuilder.Entity("praksa2.Models.CourseAssignment", b =>
+            modelBuilder.Entity("ContosoUniversity.Models.CourseAssignment", b =>
                 {
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
@@ -56,7 +56,7 @@ namespace praksa2.Migrations
                     b.ToTable("CourseAssignment");
                 });
 
-            modelBuilder.Entity("praksa2.Models.Department", b =>
+            modelBuilder.Entity("ContosoUniversity.Models.Department", b =>
                 {
                     b.Property<int>("DepartmentId")
                         .ValueGeneratedOnAdd()
@@ -88,7 +88,7 @@ namespace praksa2.Migrations
                     b.ToTable("Department");
                 });
 
-            modelBuilder.Entity("praksa2.Models.Enrollment", b =>
+            modelBuilder.Entity("ContosoUniversity.Models.Enrollment", b =>
                 {
                     b.Property<int>("EnrollmentId")
                         .ValueGeneratedOnAdd()
@@ -113,7 +113,7 @@ namespace praksa2.Migrations
                     b.ToTable("Enrollment");
                 });
 
-            modelBuilder.Entity("praksa2.Models.OfficeAssignment", b =>
+            modelBuilder.Entity("ContosoUniversity.Models.OfficeAssignment", b =>
                 {
                     b.Property<int>("InstructorId")
                         .HasColumnType("int");
@@ -127,7 +127,7 @@ namespace praksa2.Migrations
                     b.ToTable("OfficeAssignment");
                 });
 
-            modelBuilder.Entity("praksa2.Models.Person", b =>
+            modelBuilder.Entity("ContosoUniversity.Models.Person", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -150,9 +150,9 @@ namespace praksa2.Migrations
                     b.ToTable("Person");
                 });
 
-            modelBuilder.Entity("praksa2.Models.Instructor", b =>
+            modelBuilder.Entity("ContosoUniversity.Models.Instructor", b =>
                 {
-                    b.HasBaseType("praksa2.Models.Person");
+                    b.HasBaseType("ContosoUniversity.Models.Person");
 
                     b.Property<DateTime>("HireDate")
                         .HasColumnType("datetime2");
@@ -160,9 +160,9 @@ namespace praksa2.Migrations
                     b.ToTable("Instructor");
                 });
 
-            modelBuilder.Entity("praksa2.Models.Student", b =>
+            modelBuilder.Entity("ContosoUniversity.Models.Student", b =>
                 {
-                    b.HasBaseType("praksa2.Models.Person");
+                    b.HasBaseType("ContosoUniversity.Models.Person");
 
                     b.Property<DateTime>("EnrollmentDate")
                         .HasColumnType("datetime2");
@@ -170,9 +170,9 @@ namespace praksa2.Migrations
                     b.ToTable("Student");
                 });
 
-            modelBuilder.Entity("praksa2.Models.Course", b =>
+            modelBuilder.Entity("ContosoUniversity.Models.Course", b =>
                 {
-                    b.HasOne("praksa2.Models.Department", "Department")
+                    b.HasOne("ContosoUniversity.Models.Department", "Department")
                         .WithMany("Courses")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -181,15 +181,15 @@ namespace praksa2.Migrations
                     b.Navigation("Department");
                 });
 
-            modelBuilder.Entity("praksa2.Models.CourseAssignment", b =>
+            modelBuilder.Entity("ContosoUniversity.Models.CourseAssignment", b =>
                 {
-                    b.HasOne("praksa2.Models.Course", "Course")
+                    b.HasOne("ContosoUniversity.Models.Course", "Course")
                         .WithMany("CourseAssignments")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("praksa2.Models.Instructor", "Instructor")
+                    b.HasOne("ContosoUniversity.Models.Instructor", "Instructor")
                         .WithMany("CourseAssignments")
                         .HasForeignKey("InstructorId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -200,24 +200,24 @@ namespace praksa2.Migrations
                     b.Navigation("Instructor");
                 });
 
-            modelBuilder.Entity("praksa2.Models.Department", b =>
+            modelBuilder.Entity("ContosoUniversity.Models.Department", b =>
                 {
-                    b.HasOne("praksa2.Models.Instructor", "Administrator")
+                    b.HasOne("ContosoUniversity.Models.Instructor", "Administrator")
                         .WithMany()
                         .HasForeignKey("InstructorId");
 
                     b.Navigation("Administrator");
                 });
 
-            modelBuilder.Entity("praksa2.Models.Enrollment", b =>
+            modelBuilder.Entity("ContosoUniversity.Models.Enrollment", b =>
                 {
-                    b.HasOne("praksa2.Models.Course", "Course")
+                    b.HasOne("ContosoUniversity.Models.Course", "Course")
                         .WithMany("Enrollments")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("praksa2.Models.Student", "Student")
+                    b.HasOne("ContosoUniversity.Models.Student", "Student")
                         .WithMany("Enrollments")
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -228,55 +228,55 @@ namespace praksa2.Migrations
                     b.Navigation("Student");
                 });
 
-            modelBuilder.Entity("praksa2.Models.OfficeAssignment", b =>
+            modelBuilder.Entity("ContosoUniversity.Models.OfficeAssignment", b =>
                 {
-                    b.HasOne("praksa2.Models.Instructor", "Instructor")
+                    b.HasOne("ContosoUniversity.Models.Instructor", "Instructor")
                         .WithOne("OfficeAssignment")
-                        .HasForeignKey("praksa2.Models.OfficeAssignment", "InstructorId")
+                        .HasForeignKey("ContosoUniversity.Models.OfficeAssignment", "InstructorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Instructor");
                 });
 
-            modelBuilder.Entity("praksa2.Models.Instructor", b =>
+            modelBuilder.Entity("ContosoUniversity.Models.Instructor", b =>
                 {
-                    b.HasOne("praksa2.Models.Person", null)
+                    b.HasOne("ContosoUniversity.Models.Person", null)
                         .WithOne()
-                        .HasForeignKey("praksa2.Models.Instructor", "Id")
+                        .HasForeignKey("ContosoUniversity.Models.Instructor", "Id")
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("praksa2.Models.Student", b =>
+            modelBuilder.Entity("ContosoUniversity.Models.Student", b =>
                 {
-                    b.HasOne("praksa2.Models.Person", null)
+                    b.HasOne("ContosoUniversity.Models.Person", null)
                         .WithOne()
-                        .HasForeignKey("praksa2.Models.Student", "Id")
+                        .HasForeignKey("ContosoUniversity.Models.Student", "Id")
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("praksa2.Models.Course", b =>
+            modelBuilder.Entity("ContosoUniversity.Models.Course", b =>
                 {
                     b.Navigation("CourseAssignments");
 
                     b.Navigation("Enrollments");
                 });
 
-            modelBuilder.Entity("praksa2.Models.Department", b =>
+            modelBuilder.Entity("ContosoUniversity.Models.Department", b =>
                 {
                     b.Navigation("Courses");
                 });
 
-            modelBuilder.Entity("praksa2.Models.Instructor", b =>
+            modelBuilder.Entity("ContosoUniversity.Models.Instructor", b =>
                 {
                     b.Navigation("CourseAssignments");
 
                     b.Navigation("OfficeAssignment");
                 });
 
-            modelBuilder.Entity("praksa2.Models.Student", b =>
+            modelBuilder.Entity("ContosoUniversity.Models.Student", b =>
                 {
                     b.Navigation("Enrollments");
                 });

@@ -1,4 +1,4 @@
-﻿@model praksa2.Models.Instructor
+﻿@model ContosoUniversity.Models.Instructor
 
 @{
     ViewData["Title"] = "Create";
@@ -39,7 +39,7 @@
                         <tr>
                             @{
                                 int cnt = 0;
-                                List<praksa2.Models.SchoolViewModels.AssignedCourseData> courses = ViewBag.Courses;
+                                List<ContosoUniversity.Models.SchoolViewModels.AssignedCourseData> courses = ViewBag.Courses;
 
                                 foreach (var course in courses)
                                 {

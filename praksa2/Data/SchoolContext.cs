@@ -1,7 +1,7 @@
-﻿using praksa2.Models;
+﻿using ContosoUniversity.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace praksa2.Data
+namespace ContosoUniversity.Data
 {
     public class SchoolContext : DbContext
     {

@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using praksa2.Data;
-using praksa2.Models.SchoolViewModels;
+using ContosoUniversity.Data;
+using ContosoUniversity.Models.SchoolViewModels;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using praksa2.Models;
+using ContosoUniversity.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,7 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Data.Common;
 
-namespace praksa2.Controllers
+namespace ContosoUniversity.Controllers
 {
     public class HomeController : Controller
     {

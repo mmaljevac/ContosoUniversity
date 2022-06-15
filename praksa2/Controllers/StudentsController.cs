@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using praksa2.Data;
-using praksa2.Models;
+using ContosoUniversity.Data;
+using ContosoUniversity.Models;
 
-namespace praksa2.Controllers
+namespace ContosoUniversity.Controllers
 {
     public class StudentsController : Controller
     {

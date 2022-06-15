@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace praksa2.Models.SchoolViewModels
+namespace ContosoUniversity.Models.SchoolViewModels
 {
     public class AssignedCourseData
     {

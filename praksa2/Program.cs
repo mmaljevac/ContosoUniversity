@@ -1,4 +1,4 @@
-using praksa2.Data;
+using ContosoUniversity.Data;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace praksa2
+namespace ContosoUniversity
 {
     public class Program
     {
