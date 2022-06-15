@@ -148,7 +148,7 @@ namespace praksa2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, string[] selectedCourses)
+        public async Task<IActionResult> Edit([Bind("FirstName,HireDate,LastName,OfficeAssignment")] Instructor instructor, int? id, string[] selectedCourses)
         {
             if (id == null)
             {
@@ -159,13 +159,17 @@ namespace praksa2.Controllers
                 .Include(i => i.OfficeAssignment)
                 .Include(i => i.CourseAssignments)
                     .ThenInclude(i => i.Course)
-                .FirstOrDefaultAsync(s => s.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
-            if (await TryUpdateModelAsync<Instructor>(
-                instructorToUpdate,
-                "",
-                i => i.FirstName, i => i.LastName, i => i.HireDate, i => i.OfficeAssignment))
+
+
+            if (instructorToUpdate != null)
             {
+                instructorToUpdate.FirstName = instructor.FirstName;
+                instructorToUpdate.LastName = instructor.LastName;
+                instructorToUpdate.HireDate = instructor.HireDate;
+                instructorToUpdate.OfficeAssignment = instructor.OfficeAssignment;
+
                 if (String.IsNullOrWhiteSpace(instructorToUpdate.OfficeAssignment?.Location))
                 {
                     instructorToUpdate.OfficeAssignment = null;
